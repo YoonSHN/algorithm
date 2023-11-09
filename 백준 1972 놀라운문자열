@@ -1,0 +1,39 @@
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner scan = new Scanner(System.in);
+        String[] str = new String[101];
+        int len = 0;
+        for(int i = 0;;i++){
+            str[i] = scan.next();
+            if(str[i].equals("*")){
+                break;
+            }
+            len++;
+        }
+
+        for(int i = 0;i < len;++i){
+            boolean flag = false;
+            Set<String> set  = new HashSet<>();
+            int size = str[i].length();
+            for(int j = 1;j < size;++j){
+                for(int k = 0;k + j < size ;k++){
+                    String tmp = String.valueOf(str[i].charAt(k))+ String.valueOf(str[i].charAt(k + j)) + "";
+                    if(set.contains(tmp)) {
+                        flag = true;
+                        break;
+                    }
+                    else
+                        set.add(tmp);
+                }
+                set.clear();
+                if(flag) break;
+            }
+            if(flag)
+                System.out.println(str[i] + " is NOT surprising.");
+            else
+                System.out.println(str[i] + " is surprising.");
+        }
+
+    }
+}
