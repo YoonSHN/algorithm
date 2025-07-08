@@ -1,11 +1,14 @@
-import java.util.*;
+package backjoon;
 
-public class Main {
+import java.util.Scanner;
+
+public class pro_12933 {
     static final String SEQ = "quack";
 
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         String input = sc.nextLine();
+        sc.close();
 
         char[] chars = input.toCharArray();
         int length = chars.length;
